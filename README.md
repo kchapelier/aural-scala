@@ -1,6 +1,6 @@
 # Aural-Scala
 
-[![Build Status](https://travis-ci.org/kchapelier/aural-scala)](https://travis-ci.org/kchapelier/aural-scala) [![NPM version](https://badge.fury.io/js/aural-scala.svg)](http://badge.fury.io/js/aural-scala)
+[![Build Status](https://travis-ci.org/kchapelier/aural-scala.svg)](https://travis-ci.org/kchapelier/aural-scala) [![NPM version](https://badge.fury.io/js/aural-scala.svg)](http://badge.fury.io/js/aural-scala)
 
 Codec of Scala scale files
 
@@ -24,7 +24,7 @@ To run the test suite, run the following command:
 npm test
 ```
 
-## Example
+## Examples
 
 ### Decoding
 
