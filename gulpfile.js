@@ -6,9 +6,9 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     mocha = require('gulp-mocha');
 
-var sourceFiles = ['./index.js', './src/**.js'],
+var sourceFiles = ['./index.js', './src/**/*.js'],
     buildFiles = ['./gulpfile.js'],
-    testFiles = ['./tests/*.js'];
+    testFiles = ['./tests/**/*.js'];
 
 gulp.task('lint', function () {
     return gulp

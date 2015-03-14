@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * Parse a scala interval value and return it as cents
- * @param {String} string - Interval in any of the valid interval scala format
+ * Parse a Scala interval value and return it as cents
+ * @param {String} string Interval in any of the valid interval Scala format
  * @returns {Number} Interval in cents
  */
 var intervalFromString = function (string) {
@@ -17,14 +17,9 @@ var intervalFromString = function (string) {
         division = string.split('/');
         interval = parseFloat(division[0]) / parseFloat(division[1]);
     } else {
-        if (string.indexOf('.') > 0) {
-            //cent notation
-            interval = parseFloat(string);
-            isCent = true;
-        } else {
-            //integer ratio notation
-            interval = parseFloat(string);
-        }
+        //cent or integer ratio notation
+        interval = parseFloat(string);
+        isCent = (string.indexOf('.') > 0);
     }
 
     if (!isCent) {
@@ -38,7 +33,11 @@ var intervalFromString = function (string) {
     return interval;
 };
 
-
+/**
+ * Convert a float cent value to a valid Scala string representation
+ * @param {Number} interval Interval in cents
+ * @returns {String} Valid Scala string representation
+ */
 var intervalToString = function intervalToString (interval) {
     var string = interval.toString();
 
@@ -54,5 +53,6 @@ var util = {
     intervalToString: intervalToString,
     intervalFromString: intervalFromString
 };
+
 
 module.exports = util;

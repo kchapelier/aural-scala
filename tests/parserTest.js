@@ -3,7 +3,6 @@ var ScalaFile = require('./../'),
     fs = require('fs');
 
 describe('Parsing the Scala scale format', function () {
-
     describe('Parsing the most simple valid "scale"', function () {
         var data = fs.readFileSync('./tests/resources/empty.scl', 'utf-8'),
             scala = new ScalaFile(data);

@@ -12,7 +12,7 @@ var ScalaFile = function (content) {
 };
 
 /**
- * Description of the scala file
+ * Description of the Scala file
  * @type {String}
  */
 ScalaFile.prototype.description = null;
@@ -24,8 +24,8 @@ ScalaFile.prototype.description = null;
 ScalaFile.prototype.intervals = null;
 
 /**
- * Parse a string in the scala format and populate the object
- * @param {String} contentFile - Content of the scala file
+ * Parse a string in the Scala format and populate the object
+ * @param {String} contentFile Content of the Scala file
  * @private
  */
 ScalaFile.prototype.parse = function (contentFile) {
@@ -71,6 +71,10 @@ ScalaFile.prototype.parse = function (contentFile) {
     }
 };
 
+/**
+ * Encode the scale as a valid Scala string
+ * @returns {String} Scale in Scala scale format
+ */
 ScalaFile.prototype.toString = function () {
     var string = [],
         i;
