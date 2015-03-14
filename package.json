@@ -1,6 +1,6 @@
 {
   "name": "aural-scala",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Codec of Scala scale files",
   "main": "index.js",
   "private": true,

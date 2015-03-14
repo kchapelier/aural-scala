@@ -6,7 +6,9 @@ Codec of Scala scale files
 
 ## Intent
 
+The [Scala scale file format](http://www.huygens-fokker.org/scala/scl_format.html) is the de facto standard for the description and the exchange of scales and system of tuning.
 
+This module provides a decoder and an encoder for the format.
 
 ## Installing and testing
 
@@ -22,6 +24,47 @@ To run the test suite, run the following command:
 npm test
 ```
 
+## Example
+
+### Decoding
+
+```js
+// the variable string being a valid scala scale format string
+
+var ScalaScale = require('aural-scala'),
+    scale = new ScalaScale();
+
+scale.parse(string);
+```
+
+**or**
+
+```js
+// the variable string being a valid scala scale format string
+
+var ScalaScale = require('aural-scala'),
+    scale = new ScalaScale(string);
+```
+
+### Encoding
+
+```js
+var ScalaScale = require('aural-scala'),
+    scale = new ScalaScale();
+
+scale.description = 'Short description of this custom scale';
+scale.intervals.push(
+    200,
+    400,
+    600,
+    800,
+    1000,
+    1200
+);
+
+var string = scale.toString(); // returns a valid scala scale format string
+```
+
 ## Public API
 
 * TODO
@@ -30,7 +73,7 @@ npm test
 
 ## Changelog
 
-### 1.0.0 (2015.03.14) :
+### 0.1.0 (2015.03.14) :
 
 * First implementation
 
