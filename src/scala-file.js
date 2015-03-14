@@ -1,5 +1,7 @@
 "use strict";
 
+var util = require('./lib/util');
+
 var ScalaFile = function (content) {
     this.description = '';
     this.intervals = [];
@@ -52,7 +54,7 @@ ScalaFile.prototype.parse = function (contentFile) {
                 interval = line.trim();
 
                 if (interval !== '') {
-                    parsedInterval = this.treatInterval(interval);
+                    parsedInterval = util.intervalFromString(interval);
 
                     if (isFinite(parsedInterval)) {
                         this.intervals.push(parsedInterval);
@@ -82,55 +84,10 @@ ScalaFile.prototype.toString = function () {
     );
 
     for (i = 0; i < this.intervals.length; i++) {
-        var intervalStr = this.intervals[i].toString();
-
-        if (intervalStr.indexOf('.') === -1) {
-            intervalStr += '.0';
-        }
-
-        string.push(intervalStr);
+        string.push(util.intervalToString(this.intervals[i]));
     }
 
-    return string.join('\n');
-};
-
-/**
- * Parse a scala interval value and return it as cents
- * @param {String} interval - Interval in any of the valid interval scala format
- * @returns {Number} Interval in cents
- * @private
- */
-ScalaFile.prototype.treatInterval = function (interval) {
-    var isCent = false,
-        convertedInterval,
-        division;
-
-    interval = interval.split(' ')[0];
-
-    if (interval.indexOf('/') > 0) {
-        //ratio notation
-        division = interval.split('/');
-        convertedInterval = parseFloat(division[0]) / parseFloat(division[1]);
-    } else {
-        if (interval.indexOf('.') > 0) {
-            //cent notation
-            convertedInterval = parseFloat(interval);
-            isCent = true;
-        } else {
-            //integer ratio notation
-            convertedInterval = parseFloat(interval);
-        }
-    }
-
-    if (!isCent) {
-        if (convertedInterval < 0) {
-            throw 'Error in file format : negative ratio as interval';
-        }
-
-        convertedInterval = 1200 * Math.log(convertedInterval) / Math.log(2);
-    }
-
-    return convertedInterval;
+    return string.join('\r\n');
 };
 
 module.exports = ScalaFile;
