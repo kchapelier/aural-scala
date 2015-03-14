@@ -29,7 +29,7 @@ ScalaFile.prototype.intervals = null;
  * @private
  */
 ScalaFile.prototype.parse = function (contentFile) {
-    var lines = (contentFile + "\r\n").match(/^.*[\n\r]+|$/gm),
+    var lines = (contentFile + '\r\n').match(/^.*[\n\r]{1,2}|$/gm),
         countLines = 0,
         line,
         numberIntervals,
