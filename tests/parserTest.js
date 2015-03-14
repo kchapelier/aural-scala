@@ -3,6 +3,20 @@ var ScalaFile = require('./../'),
     fs = require('fs');
 
 describe('Parsing the Scala scale format', function () {
+
+    describe('Parsing the most simple valid "scale"', function () {
+        var data = fs.readFileSync('./tests/resources/empty.scl', 'utf-8'),
+            scala = new ScalaFile(data);
+
+        it('should report the expected properties', function () {
+            scala.description.should.equal('');
+        });
+
+        it('should contain all the expected intervals (none)', function () {
+            scala.intervals.length.should.equal(0);
+        });
+    });
+
     describe('Parsing the 1/4-comma meantone scale', function () {
         var data = fs.readFileSync('./tests/resources/meanquar.scl', 'utf-8'),
             expectedIntervals = [

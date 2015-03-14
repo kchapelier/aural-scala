@@ -24,8 +24,6 @@ describe('Encoding the Scala scale format', function () {
         var scala = new ScalaFile(),
             parsedScala = new ScalaFile();
 
-        console.log(scala.toString());
-
         it('should return a string', function () {
             scala.toString().should.be.a('string');
         });
