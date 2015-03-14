@@ -1,9 +1,13 @@
 "use strict";
 
-var ScalaFile = function () {
+var ScalaFile = function (content) {
     this.description = '';
     this.numberIntervals = 0;
     this.intervals = [];
+
+    if (content) {
+        this.parse(content);
+    }
 };
 
 /**
