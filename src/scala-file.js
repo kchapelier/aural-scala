@@ -2,7 +2,6 @@
 
 var ScalaFile = function (content) {
     this.description = '';
-    this.numberIntervals = 0;
     this.intervals = [];
 
     if (content) {
@@ -17,19 +16,13 @@ var ScalaFile = function (content) {
 ScalaFile.prototype.description = null;
 
 /**
- * Number of intervals as defined in the file
- * @type {Number}
- */
-ScalaFile.prototype.numberIntervals = null;
-
-/**
  * Array of intervals
  * @type {Array}
  */
 ScalaFile.prototype.intervals = null;
 
 /**
- * Parse the content of a scala file and populate the object
+ * Parse a string in the scala format and populate the object
  * @param {String} contentFile - Content of the scala file
  * @private
  */
@@ -37,6 +30,7 @@ ScalaFile.prototype.parse = function (contentFile) {
     var lines = (contentFile + "\r\n").match(/^.*[\n\r]+|$/gm),
         countLines = 0,
         line,
+        numberIntervals,
         interval,
         parsedInterval,
         i;
@@ -52,7 +46,7 @@ ScalaFile.prototype.parse = function (contentFile) {
                 this.description = line.trim();
             } else if (countLines === 1) {
                 //second non-commented line is the number of intervals
-                this.numberIntervals = parseInt(line, 10);
+                numberIntervals = parseInt(line, 10);
             } else {
                 //every other non-commented lines are interval values
                 interval = line.trim();
@@ -60,7 +54,7 @@ ScalaFile.prototype.parse = function (contentFile) {
                 if (interval !== '') {
                     parsedInterval = this.treatInterval(interval);
 
-                    if (!isNaN(parsedInterval)) {
+                    if (isFinite(parsedInterval)) {
                         this.intervals.push(parsedInterval);
                     }
                 }
@@ -70,9 +64,34 @@ ScalaFile.prototype.parse = function (contentFile) {
         }
     }
 
-    if (this.intervals.length !== this.numberIntervals) {
+    if (this.intervals.length !== numberIntervals) {
         throw 'Error in file format : incorrect number of valid intervals';
     }
+};
+
+ScalaFile.prototype.toString = function () {
+    var string = [],
+        i;
+
+    string.push(
+        '! generated with aural-scala',
+        '!',
+        this.description,
+        this.intervals.length,
+        '!'
+    );
+
+    for (i = 0; i < this.intervals.length; i++) {
+        var intervalStr = this.intervals[i].toString();
+
+        if (intervalStr.indexOf('.') === -1) {
+            intervalStr += '.0';
+        }
+
+        string.push(intervalStr);
+    }
+
+    return string.join('\n');
 };
 
 /**

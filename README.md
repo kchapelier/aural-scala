@@ -16,7 +16,7 @@ With [npm](http://npmjs.org) do:
 npm install aural-scala
 ```
 
-To run the test suite, run the following command from the mathp directory:
+To run the test suite, run the following command:
 
 ```
 npm test
