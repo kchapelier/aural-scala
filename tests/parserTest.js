@@ -1,11 +1,11 @@
-var ScalaFile = require('./../'),
+var ScalaScale = require('./../'),
     should = require('chai').should(),
     fs = require('fs');
 
 describe('Parsing the Scala scale format', function () {
     describe('Parsing the most simple valid "scale"', function () {
         var data = fs.readFileSync('./tests/resources/empty.scl', 'utf-8'),
-            scala = new ScalaFile(data);
+            scala = new ScalaScale(data);
 
         it('should report the expected properties', function () {
             scala.description.should.equal('');
@@ -32,7 +32,7 @@ describe('Parsing the Scala scale format', function () {
                 1082.89214,
                 1200
             ],
-            scala = new ScalaFile(data);
+            scala = new ScalaScale(data);
 
         it('should report the expected properties', function () {
             scala.description.should.equal('1/4-comma meantone scale. Pietro Aaron\'s temperament (1523)');
@@ -63,7 +63,7 @@ describe('Parsing the Scala scale format', function () {
                 1109.775004326937,
                 1200
             ],
-            scala = new ScalaFile(data);
+            scala = new ScalaScale(data);
 
         it('should report the expected properties', function () {
             scala.description.should.equal('12-tone Pythagorean scale');
@@ -94,7 +94,7 @@ describe('Parsing the Scala scale format', function () {
                 1028.8,
                 1200
             ],
-            scala = new ScalaFile(data);
+            scala = new ScalaScale(data);
 
         it('should report the expected properties', function () {
             scala.description.should.equal('Siamese Tuning, after Clem Fortuna\'s Microtonal Guide');

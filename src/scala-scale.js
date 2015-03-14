@@ -2,7 +2,7 @@
 
 var util = require('./lib/util');
 
-var ScalaFile = function (content) {
+var ScalaScale = function (content) {
     this.description = '';
     this.intervals = [];
 
@@ -15,20 +15,20 @@ var ScalaFile = function (content) {
  * Description of the Scala file
  * @type {String}
  */
-ScalaFile.prototype.description = null;
+ScalaScale.prototype.description = null;
 
 /**
  * Array of intervals
  * @type {Array}
  */
-ScalaFile.prototype.intervals = null;
+ScalaScale.prototype.intervals = null;
 
 /**
  * Parse a string in the Scala format and populate the object
  * @param {String} contentFile Content of the Scala file
  * @private
  */
-ScalaFile.prototype.parse = function (contentFile) {
+ScalaScale.prototype.parse = function (contentFile) {
     var lines = (contentFile + '\r\n').match(/^.*[\n\r]{1,2}|$/gm),
         countLines = 0,
         line,
@@ -75,7 +75,7 @@ ScalaFile.prototype.parse = function (contentFile) {
  * Encode the scale as a valid Scala string
  * @returns {String} Scale in Scala scale format
  */
-ScalaFile.prototype.toString = function () {
+ScalaScale.prototype.toString = function () {
     var string = [],
         i;
 
@@ -94,4 +94,4 @@ ScalaFile.prototype.toString = function () {
     return string.join('\r\n');
 };
 
-module.exports = ScalaFile;
+module.exports = ScalaScale;

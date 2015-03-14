@@ -22,25 +22,22 @@ To run the test suite, run the following command:
 npm test
 ```
 
-*
-
 ## Public API
 
-*
+* TODO
 
 [Full API documentation](https://github.com/kchapelier/aural-scala/blob/master/API.md)
 
 ## Changelog
 
-### 0.0.0 (2015.00.00) :
+### 1.0.0 (2015.03.14) :
 
-* Setup the project
+* First implementation
 
 [Full history](https://github.com/kchapelier/aural-scala/blob/master/CHANGELOG.md)
 
 ## Roadmap
 
-* Make a first implementation.
 * Write API documentation.
 
 ## License

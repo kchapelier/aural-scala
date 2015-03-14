@@ -1,6 +1,6 @@
 # Aural-Scala - Changelog
 
-## 0.0.0 (2015.00.00) :
+### 1.0.0 (2015.03.14) :
 
-* Setup the project
+* First implementation
 
