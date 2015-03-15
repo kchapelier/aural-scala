@@ -32,18 +32,7 @@ npm test
 // the variable string being a valid scala scale format string
 
 var ScalaScale = require('aural-scala'),
-    scale = new ScalaScale();
-
-scale.parse(string);
-```
-
-**or**
-
-```js
-// the variable string being a valid scala scale format string
-
-var ScalaScale = require('aural-scala'),
-    scale = new ScalaScale(string);
+    scale = ScalaScale.parse(string);
 ```
 
 ### Encoding

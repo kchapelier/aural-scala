@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Codec of Scala scale files",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "check": "gulp lint; gulp codestyle; exit 0",
     "test": "gulp test"
