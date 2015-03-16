@@ -1,7 +1,7 @@
 {
   "name": "aural-scala",
-  "version": "0.1.0",
-  "description": "Codec of Scala scale files",
+  "version": "1.0.0",
+  "description": "A codec for Scala scale files.",
   "main": "index.js",
   "scripts": {
     "check": "gulp lint; gulp codestyle; exit 0",

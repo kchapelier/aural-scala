@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kchapelier/aural-scala.svg)](https://travis-ci.org/kchapelier/aural-scala) [![NPM version](https://badge.fury.io/js/aural-scala.svg)](http://badge.fury.io/js/aural-scala)
 
-Codec of Scala scale files
+A codec for Scala scale files.
 
 ## Intent
 
@@ -56,15 +56,15 @@ var string = scale.toString(); // returns a valid scala scale format string
 
 ## Public API
 
-* TODO
-
 [Full API documentation](https://github.com/kchapelier/aural-scala/blob/master/API.md)
 
 ## Changelog
 
-### 0.1.0 (2015.03.14) :
+### 1.0.0 (2015.03.16) :
 
-* First implementation
+* The method parse is now static.
+* The constructor doesn't accept a string to parse as argument anymore.
+* Declare stable (freeze the public API).
 
 [Full history](https://github.com/kchapelier/aural-scala/blob/master/CHANGELOG.md)
 
