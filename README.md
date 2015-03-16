@@ -70,7 +70,7 @@ var string = scale.toString(); // returns a valid scala scale format string
 
 ## Roadmap
 
-* Write API documentation.
+* TBD
 
 ## License
 
